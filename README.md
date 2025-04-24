@@ -26,8 +26,3 @@ Il permet :
 - **Backend** : Node.js, Express
 - **PDF** : `pdf-lib`
 - **Mail** : `EmailJS` / `Nodemailer`
-
----
-
-## 📁 Structure du projet
-
