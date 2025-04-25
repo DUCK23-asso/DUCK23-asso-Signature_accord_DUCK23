@@ -24,10 +24,10 @@ async function generateDuck23SurveyPDF(data) {
   const logoImage = fs.readFileSync(logoPath);
   const embeddedLogo = await doc.embedPng(logoImage);
   page.drawImage(embeddedLogo, {
-    x: 40,
+    x: 100,
     y: 770,
     width: 100,
-    height: 50,
+    height: 100,
   });
 
   // Titre principal
