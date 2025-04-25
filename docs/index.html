@@ -8,49 +8,87 @@
 </head>
 <body>
   <div class="container">
-    <div class="form-logo">
-        <img src="logo-duck23.png" alt="Logo Duck23" />
+
+    <!-- 🔥 Logo centré au-dessus -->
+    <div class="form-logo-centered">
+      <img src="logo-duck23.png" alt="Logo Duck23" />
+      <h1>Adhésion à l'association DUCK23</h1>
+    </div>
+
+    <div class="form-layout">
+
+      <!-- Bloc gauche -->
+      <div class="form-infos">
+        <p>Merci de lire les documents suivants avant de signer :</p>
+        <div class="document-links">
+          <a href="https://drive.google.com/file/d/1xFrvtTosOHEMRXxO3mo6CBLebVtxHZ3l/view?usp=sharing" target="_blank">Règlement Discord</a>
+          <a href="https://drive.google.com/file/d/1m569jFi-gLdqe5bS9HDTIqHtPwQrvkMJ/view?usp=sharing" target="_blank">Règlement intérieur</a>
+          <a href="https://drive.google.com/file/d/1kprITwOsWqCwmmakXuWEYCoaHUrh76H6/view?usp=sharing" target="_blank">Charte de Confidentialité Générale</a>
+          <a href="https://drive.google.com/file/d/1gQx71VAnoRhCF6Hg26nt64bQRAfBqouU/view?usp=sharing" target="_blank">Politique de Confidentialité</a>
+          <a href="https://drive.google.com/file/d/1g6PcgsrSTnHOJDxRTv6_S626lrc8WWfD/view?usp=sharing" target="_blank">Charte de Confidentialité Projet</a>
+        </div>
+
+        <embed
+          src="déclaration d'accord des documents DUCK23.pdf#toolbar=0&navpanes=0&scrollbar=1"
+          type="application/pdf"
+          width="100%"
+          height="450px"
+        />
       </div>
-    <h1>Adhésion à l'association DUCK23</h1>
-    <p>Merci de lire les documents suivants avant de signer :</p>
-    <div class="document-links">
-        <a href="https://drive.google.com/file/d/1xFrvtTosOHEMRXxO3mo6CBLebVtxHZ3l/view?usp=sharing" target="_blank">Règlement Discord</a>
-        <a href="https://drive.google.com/file/d/1m569jFi-gLdqe5bS9HDTIqHtPwQrvkMJ/view?usp=sharing" target="_blank">Règlement intérieur</a>
-        <a href="https://drive.google.com/file/d/1kprITwOsWqCwmmakXuWEYCoaHUrh76H6/view?usp=sharing" target="_blank">Charte de Confidentialité Générale</a>
-        <a href="https://drive.google.com/file/d/1gQx71VAnoRhCF6Hg26nt64bQRAfBqouU/view?usp=sharing" target="_blank">Politique de Confidentialité</a>
-        <a href="https://drive.google.com/file/d/1g6PcgsrSTnHOJDxRTv6_S626lrc8WWfD/view?usp=sharing" target="_blank">Charte de Confidentialité Projet</a>
+
+      <!-- Bloc droit -->
+      <div class="form-section">
+        <form id="signatureForm">
+          <label for="firstname">Prénom :
+            <input type="text" id="firstname" name="firstname" required />
+          </label>
+          <label for="lastname">Nom :
+            <input type="text" id="lastname" name="lastname" required />
+          </label>
+          <label for="discord">Pseudonyme discord :
+            <input type="text" id="discord" name="discord" required />
+          </label>
+          <label for="email">Email :
+            <input type="email" id="email" name="email" required />
+          </label>
+          <label for="city">Fait à :
+            <input type="text" id="city" name="city" required />
+          </label>
+          <label for="date">Date :
+            <input type="date" id="date" name="date" required />
+          </label>
+
+          <h2>Mieux vous connaître</h2>
+
+          <p><strong>1. Quel est votre statut ?</strong><br><em>Un justificatif pourra être demandé ultérieurement</em></p>
+          <label><input type="radio" name="statut" value="Étudiant.e en développement informatique" /> Étudiant.e en développement informatique</label><br>
+          <label><input type="radio" name="statut" value="Développeur·euse en recherche d'emploi" /> Développeur·euse en recherche d'emploi</label><br>
+          <label><input type="radio" name="statut" value="Développeur·euse indépendant.e" /> Développeur·euse indépendant.e</label><br>
+          <label><input type="radio" name="statut" value="Développeur·euse salarié.e" /> Développeur·euse salarié.e</label><br>
+          <label><input type="radio" name="statut" value="Non développeur·euse" /> Non développeur·euse</label><br><br>
+
+          <p><strong>2. Quels sont vos objectifs en rejoignant Duck23 ?</strong></p>
+          <label><input type="checkbox" name="objectifs[]" value="Partager vos connaissances en développement" /> Partager vos connaissances en développement</label><br>
+          <label><input type="checkbox" name="objectifs[]" value="Apprendre auprès d’autres développeurs" /> Apprendre auprès d’autres développeurs</label><br>
+          <label><input type="checkbox" name="objectifs[]" value="Aider l’association (organisation, trésorerie, etc.)" /> Aider l’association (organisation, trésorerie, etc.)</label><br>
+          <label><input type="checkbox" name="objectifs[]" value="Autre" /> Autre</label><br><br>
+
+          <p><strong>3. Souhaitez-vous participer activement à des projets de développement ?</strong></p>
+          <label><input type="radio" name="participation" value="Oui, je veux participer activement" /> Oui, je veux participer activement</label><br>
+          <label><input type="radio" name="participation" value="Non, je préfère contribuer ponctuellement" /> Non, je préfère contribuer ponctuellement</label><br>
+          <label><input type="radio" name="participation" value="Je ne sais pas encore" /> Je ne sais pas encore</label><br>
+          <label><input type="radio" name="participation" value="Je ne suis pas dev." /> Je ne suis pas dev.</label><br><br>
+
+          <p><strong>4. Quelle est votre expérience en développement (si applicable) ?</strong></p>
+          <label><input type="radio" name="experience" value="Débutant" /> Débutant</label><br>
+          <label><input type="radio" name="experience" value="Intermédiaire" /> Intermédiaire</label><br>
+          <label><input type="radio" name="experience" value="Avancé" /> Avancé</label><br>
+          <label><input type="radio" name="experience" value="Non applicable (membre soutien)" /> Non applicable (membre soutien)</label><br><br>
+
+          <button type="submit">📥 Je signe mon engagement</button>
+        </form>
       </div>
-
-      <embed
-      src="déclaration d'accord des documents DUCK23.pdf#toolbar=0&navpanes=0&scrollbar=1"
-      type="application/pdf"
-      width="100%"
-      height="450px"
-    />
-
-    <form id="signatureForm">
-      <label for="firstname">Prénom :
-        <input type="text" id="firstname" name="firstname" required />
-      </label>
-      <label for="lastname">Nom :
-        <input type="text" id="lastname" name="lastname" required />
-      </label>
-      <label for="discord">Pseudonyme discord :
-        <input type="text" id="discord" name="discord" required />
-      </label>
-      <label for="email">Email :
-        <input type="email" id="email" name="email" required />
-      </label>
-      <label for="city">Fait à :
-        <input type="text" id="city" name="city" required />
-      </label>
-      <label for="date">Date :
-        <input type="date" id="date" name="date" required />
-      </label>
-
-
-      <button type="submit">📥 Je signe mon engagement</button>
-    </form>
+    </div>
   </div>
 
   <div id="toast" class="toast hidden">...</div>

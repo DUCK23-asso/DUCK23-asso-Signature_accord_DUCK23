@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const generatePDF = require('./utils/generatePDF');
 const sendMail = require('./utils/sendMail');
+const { generateDuck23SurveyPDF } = require('./utils/generateSurveyPDF');
 require('dotenv').config();
 
 const app = express();
@@ -13,19 +14,40 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/submit', async (req, res) => {
-    try {
-      const { firstname, lastname, email, date, city, discord } = req.body;
+  try {
+    const {
+      firstname,
+      lastname,
+      email,
+      date,
+      city,
+      discord,
+      statut,
+      objectifs,
+      participation,
+      experience
+    } = req.body;
 
-      if (!firstname || !lastname || !email || !date || !city || !discord) {
-        return res.status(400).json({ error: 'Tous les champs sont obligatoires.' });
-      }
+    // Vérifie les champs obligatoires du PDF d'engagement
+    if (!firstname || !lastname || !email || !date || !city || !discord) {
+      return res.status(400).json({ error: 'Tous les champs sont obligatoires.' });
+    }
 
-      const pdfBuffer = await generatePDF({ firstname, lastname, email, date, city, discord });
+    // Génère le PDF d’engagement
+    const pdfBuffer = await generatePDF({ firstname, lastname, email, date, city, discord });
 
+    // Génère le PDF "mieux nous connaître" (même si les réponses ne sont pas obligatoires)
+    const surveyPdfBuffer = await generateDuck23SurveyPDF({
+      statut,
+      objectifs,
+      participation,
+      experience,
+    });
 
-    await sendMail(email, pdfBuffer);
+    // Envoie les deux PDFs par mail
+    await sendMail(email, pdfBuffer, surveyPdfBuffer);
 
-    res.status(200).json({ message: 'PDF généré et envoyé avec succès !' });
+    res.status(200).json({ message: 'PDFs générés et envoyés avec succès !' });
   } catch (error) {
     console.error('Erreur backend:', error);
     res.status(500).json({ error: 'Erreur lors du traitement de la demande.' });

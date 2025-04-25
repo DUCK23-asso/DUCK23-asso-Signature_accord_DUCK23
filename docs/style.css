@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-  max-width: 640px;
+  max-width: 1200px;
   margin: 2rem auto;
   background: white;
   padding: 2rem;
@@ -179,3 +179,104 @@ button:hover {
     overflow: hidden;
     box-shadow: 0 0 6px rgba(0,0,0,0.1);
   }
+
+ /* ✅ Style appliqué UNIQUEMENT aux labels de questions (radio/checkbox) */
+form label:has(input[type="radio"]),
+form label:has(input[type="checkbox"]) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+/* Texte de chaque bloc de question */
+form p {
+  font-weight: bold;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+/* Style des boutons radio/checkbox */
+form input[type="radio"],
+form input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #003366;
+}
+
+/* Titre principal de section */
+h2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #0097A7; /* Bleu canard */
+  font-weight: bold;
+}
+
+/* Texte de question (les <p>) */
+form p {
+  font-weight: bold;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+/* Style pour les petits textes en italique */
+form p em {
+  font-style: italic;
+  font-weight: normal;
+  color: #444;
+  font-size: 0.95rem;
+}
+/* 🌐 Mise en page globale */
+.form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* 📱 Comportement sur PC uniquement */
+@media (min-width: 900px) {
+  .form-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .form-infos {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .form-section {
+    flex: 1;
+  }
+
+  .form-infos embed {
+    height: 600px;
+  }
+}
+.form-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.form-logo-centered {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-logo-centered img {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.form-logo-centered h1 {
+  color: #003366;
+  font-size: 24px;
+  margin: 0;
+}
